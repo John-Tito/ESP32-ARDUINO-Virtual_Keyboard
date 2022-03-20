@@ -1,0 +1,18 @@
+{
+    "default_config": 0,
+    "config_list_len": 2,
+    "config_list": [
+        {
+            "config": {
+                "ssid": "SSID1",
+                "password": "PASSWORD1"
+            }
+        },
+        {
+            "config": {
+                "ssid": "SSID",
+                "password": "PASSWORD2"
+            }
+        }
+    ]
+}

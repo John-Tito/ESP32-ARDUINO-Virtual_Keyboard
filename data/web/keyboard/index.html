@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<!-- bulid at 2021/11/27/ 17:12:47  -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>虚拟键盘</title>
+    <style>
+        #inputArea {
+            position: absolute;
+            width: 708px;
+            height: 20%;
+            margin: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 60%;
+        }
+
+        .keyboardBox {
+            position: absolute;
+            width: 708px;
+            height: 256px;
+            margin: auto;
+            top: 30%;
+            left: 0;
+            right: 0;
+            bottom: 0%;
+            background-color: #ccc;
+            font-size: 16px
+        }
+
+        .line {
+            position: relative;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .keys_a,
+        .keys_c,
+        .keys_d {
+            box-sizing: border-box;
+            float: left;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            margin: 0 0 3px 3px;
+            border-radius: 4px;
+            border: 1px solid #333;
+            text-align: center;
+            cursor: pointer;
+            background-color: #fff;
+        }
+
+        .keys_a:hover,
+        .keys_c:hover,
+        .keys_d:hover {
+            box-shadow: 0px 0px 3px #333 inset;
+        }
+
+        .keys_a:active,
+        .keys_c:active,
+        .keys_d:active {
+            background-color: #dedede;
+        }
+
+        .active {
+            background-color: #dedede;
+            box-shadow: 0px 0px 3px #333 inset;
+        }
+
+        .keys_d {
+            height: 45px;
+            line-height: 20px;
+        }
+
+        .key_enter {
+            width: 102px;
+        }
+
+        .k-w-50 {
+            width: 50px;
+        }
+
+        .k-w-70 {
+            width: 70px;
+        }
+
+        .k-w-75 {
+            width: 75px;
+        }
+
+        .k-w-80 {
+            width: 80px;
+        }
+
+        .k-w-100 {
+            width: 100px;
+        }
+
+        .k-w-120 {
+            width: 120px;
+        }
+
+        .k-w-704 {
+            width: 704px;
+        }
+
+        .gap {
+            margin-left: 30px;
+        }
+
+        .gap_t {
+            margin-top: 10px;
+        }
+
+        .line .l-h-40 {
+            line-height: 40px;
+        }
+
+        .f-s-14 {
+            font-size: 14px;
+        }
+
+        .t-a-l {
+            padding-left: 15px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="inputArea" id="inputArea" cols="80" rows="10" placeholder="点击虚拟键盘输入"></textarea>
+    <div class="keyboardBox" id="keyboard">
+        <div class="line gap_t">
+            <div class="keys_d t-a-l" data-kid="192">
+                <div>~</div>
+                <div>`</div>
+            </div>
+            <div class="keys_d t-a-l" data-kid="49">
+                <div>!</div>
+                <div>1</div>
+            </div>
+            <div class="keys_d t-a-l" data-kid="50">
+                <div>@</div>
+                <div>2</div>
+            </div>
+            <div class="keys_d t-a-l" data-kid="51">
+                <div>#</div>
+                <div>3</div>
+            </div>
+            <div class="keys_d t-a-l" data-kid="52">
+                <div>$</div>
+                <div>4</div>
+            </div>
+            <div class="keys_d t-a-l" data-kid="53">
+                <div>%</div>
+                <div>5</div>
+            </div>
+            <div class="keys_d t-a-l" data-kid="54">
+                <div>^</div>
+                <div>6</div>
+            </div>
+            <div class="keys_d t-a-l" data-kid="55">
+                <div>&amp;</div>
+                <div>7</div>
+            </div>
+            <div class="keys_d t-a-l" data-kid="56">
+                <div>*</div>
+                <div>8</div>
+            </div>
+            <div class="keys_d t-a-l" data-kid="57">
+                <div>(</div>
+                <div>9</div>
+            </div>
+            <div class="keys_d t-a-l" data-kid="48">
+                <div>)</div>
+                <div>0</div>
+            </div>
+            <div class="keys_d t-a-l" data-kid="189">
+                <div>_</div>
+                <div>-</div>
+            </div>
+            <div class="keys_d t-a-l" data-kid="187">
+                <div>+</div>
+                <div>=</div>
+            </div>
+            <div class="keys_c k-w-80 l-h-40 f-s-14" data-kid="8">Backspace</div>
+        </div>
+        <div class="line">
+            <div class="keys_c k-w-50" data-kid="9">Tab</div>
+            <div class="keys_a" data-kid="81">Q</div>
+            <div class="keys_a" data-kid="87">W</div>
+            <div class="keys_a" data-kid="69">E</div>
+            <div class="keys_a" data-kid="82">R</div>
+            <div class="keys_a" data-kid="84">T</div>
+            <div class="keys_a" data-kid="89">Y</div>
+            <div class="keys_a" data-kid="85">U</div>
+            <div class="keys_a" data-kid="73">I</div>
+            <div class="keys_a" data-kid="79">O</div>
+            <div class="keys_a" data-kid="80">P</div>
+            <div class="keys_d t-a-l" data-kid="219">
+                <div>{</div>
+                <div>[</div>
+            </div>
+            <div class="keys_d t-a-l" data-kid="221">
+                <div>}</div>
+                <div>]</div>
+            </div>
+            <div class="keys_d k-w-75 t-a-l" data-kid="220">
+                <div>|</div>
+                <div>\</div>
+            </div>
+        </div>
+        <div class="line">
+            <div class="keys_c k-w-70 f-s-14" data-kid="20">CapsLock</div>
+            <div class="keys_a" data-kid="65">A</div>
+            <div class="keys_a" data-kid="83">S</div>
+            <div class="keys_a" data-kid="68">D</div>
+            <div class="keys_a" data-kid="70">F</div>
+            <div class="keys_a" data-kid="71">G</div>
+            <div class="keys_a" data-kid="72">H</div>
+            <div class="keys_a" data-kid="74">J</div>
+            <div class="keys_a" data-kid="75">K</div>
+            <div class="keys_a" data-kid="76">L</div>
+            <div class="keys_d t-a-l" data-kid="186">
+                <div>:</div>
+                <div>;</div>
+            </div>
+            <div class="keys_d t-a-l" data-kid="222">
+                <div>"</div>
+                <div>'</div>
+            </div>
+            <div class="keys_c key_enter" data-kid="13">Enter</div>
+        </div>
+        <div class="line">
+            <div class="keys_c k-w-100" data-kid="16">Shift</div>
+            <div class="keys_a" data-kid="90">Z</div>
+            <div class="keys_a" data-kid="88">X</div>
+            <div class="keys_a" data-kid="67">C</div>
+            <div class="keys_a" data-kid="86">V</div>
+            <div class="keys_a" data-kid="66">B</div>
+            <div class="keys_a" data-kid="78">N</div>
+            <div class="keys_a" data-kid="77">M</div>
+            <div class="keys_d t-a-l" data-kid="188">
+                <div>
+                </div>
+                <div>,</div>
+            </div>
+            <div class="keys_d t-a-l" data-kid="190">
+                <div>></div>
+                <div>.</div>
+            </div>
+            <div class="keys_d t-a-l" data-kid="191">
+                <div>?</div>
+                <div>/</div>
+            </div>
+            <div class="keys_c k-w-120" data-kid="16">Shift</div>
+        </div>
+        <div class="line">
+            <div class="keys_a k-w-704" data-kid="32">&nbsp;</div>
+        </div>
+    </div>
+    <script type="text/javascript" src="keyboard.js"></script>
+    <script>
+        window.onload = function () {
+            new keyboard().addKeyboard('inputArea');
+        }
+//
+// ————————————————
+// 版权声明：本文为CSDN博主「KeyonY」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+// 原文链接：https://blog.csdn.net/u010467784/article/details/78286641
+    </script>
+</body>
+
+</html>
